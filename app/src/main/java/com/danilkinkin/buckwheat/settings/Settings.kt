@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.clickable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -26,7 +27,7 @@ import com.danilkinkin.buckwheat.ui.BuckwheatTheme
 const val SETTINGS_SHEET = "settings"
 
 @Composable
-fun Settings(onTriedWidget: () -> Unit = {}) {
+fun Settings(onTriedWidget: () -> Unit = {}, onOpenTest: () -> Unit = {}) {
     val localBottomSheetScrollState = LocalBottomSheetScrollState.current
 
     val navigationBarHeight = androidx.compose.ui.unit.max(
@@ -57,6 +58,10 @@ fun Settings(onTriedWidget: () -> Unit = {}) {
                 TryWidget(onTried = {
                     onTriedWidget()
                 })
+                TextRow(
+                    modifier = Modifier.clickable { onOpenTest() },
+                    text = "Test",
+                )
                 TextRow(
                     text = stringResource(R.string.version, BuildConfig.VERSION_NAME),
                 )

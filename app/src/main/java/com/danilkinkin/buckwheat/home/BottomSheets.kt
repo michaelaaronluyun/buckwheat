@@ -110,7 +110,20 @@ fun BottomSheets(
             onTriedWidget = {
                 coroutineScope.launch { state.callback(emptyMap()) }
             }
+            ,
+            onOpenTest = {
+                coroutineScope.launch {
+                    state.hide()
+                    appViewModel.openSheet(PathState(TEST_SHEET))
+                }
+            }
         )
+
+    BottomSheetWrapper(
+        name = TEST_SHEET,
+    ) { _ ->
+        TestPage()
+    }
     }
 
     BottomSheetWrapper(
