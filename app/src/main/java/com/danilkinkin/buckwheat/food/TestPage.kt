@@ -1,4 +1,4 @@
-package com.danilkinkin.buckwheat.settings
+package com.danilkinkin.buckwheat.food
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

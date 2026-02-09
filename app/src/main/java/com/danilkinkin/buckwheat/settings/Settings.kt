@@ -54,10 +54,6 @@ fun Settings(onOpenTest: () -> Unit = {}) {
                     .padding(bottom = navigationBarHeight)
             ) {
                 ThemeSwitcher()
-                TextRow(
-                    modifier = Modifier.clickable { onOpenTest() },
-                    text = "Test",
-                )
                 About(Modifier.padding(start = 16.dp, end = 16.dp))
             }
         }

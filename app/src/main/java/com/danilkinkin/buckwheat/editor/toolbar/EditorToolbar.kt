@@ -30,6 +30,7 @@ import com.danilkinkin.buckwheat.editor.EditStage
 import com.danilkinkin.buckwheat.editor.EditorViewModel
 import com.danilkinkin.buckwheat.editor.toolbar.restBudgetPill.RestBudgetPill
 import com.danilkinkin.buckwheat.settings.SETTINGS_SHEET
+import com.danilkinkin.buckwheat.food.TEST_SHEET
 import com.danilkinkin.buckwheat.util.observeLiveData
 import kotlinx.coroutines.launch
 
@@ -87,6 +88,13 @@ fun EditorToolbar(
         } else {
             RestBudgetPill()
         }
+
+        Spacer(modifier = Modifier.width(4.dp))
+        BigIconButton(
+            icon = painterResource(R.drawable.ic_food),
+            contentDescription = null,
+            onClick = { appViewModel.openSheet(PathState(TEST_SHEET)) },
+        )
         Spacer(modifier = Modifier.width(4.dp))
         BigIconButton(
             icon = painterResource(R.drawable.ic_settings),
