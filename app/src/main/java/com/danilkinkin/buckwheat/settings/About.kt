@@ -26,10 +26,7 @@ import com.danilkinkin.buckwheat.util.openInBrowser
 @Composable
 fun About(
     modifier: Modifier = Modifier,
-    appViewModel: AppViewModel = hiltViewModel(),
 ) {
-    val context = LocalContext.current
-    val configuration = LocalConfiguration.current
 
     Card(
         modifier = modifier,
@@ -48,98 +45,6 @@ fun About(
                 style = MaterialTheme.typography.bodyMedium,
             )
             Spacer(modifier = Modifier.height(8.dp))
-
-            val annotatedString = buildAnnotatedString {
-                withStyle(style = SpanStyle(color = contentColor)) {
-                    append("${stringResource(R.string.developer)} ")
-                }
-
-                pushStringAnnotation(
-                    tag = "developer",
-                    annotation = "https://danilkinkin.com",
-                )
-                withStyle(
-                    style = SpanStyle(color = MaterialTheme.colorScheme.primary)
-                ) {
-                    append("@danilkinkin ")
-                }
-
-                appendInlineContent("openInBrowser")
-
-                pop()
-            }
-
-            ClickableText(
-                text = annotatedString,
-                inlineContent = mapOf(
-                    "openInBrowser" to InlineTextContent(
-                        Placeholder(
-                            MaterialTheme.typography.bodyLarge.fontSize,
-                            MaterialTheme.typography.bodyLarge.fontSize,
-                            PlaceholderVerticalAlign.TextCenter,
-                        )
-                    ) {
-                        Icon(
-                            tint = MaterialTheme.colorScheme.primary,
-                            painter = painterResource(R.drawable.ic_open_in_browser_small),
-                            contentDescription = null,
-                        )
-                    }
-                ),
-                style = MaterialTheme.typography.bodyLarge,
-                onClick = { offset ->
-                    annotatedString.getStringAnnotations(
-                        tag = "developer",
-                        start = offset,
-                        end = offset,
-                    ).firstOrNull()?.let {
-                        openInBrowser(
-                            context,
-                            "https://danilkinkin.com",
-                        )
-                    }
-
-                },
-            )
-            Spacer(modifier = Modifier.height(24.dp))
-            DescriptionButton(
-                title = { Text(stringResource(R.string.contribute)) },
-                icon = painterResource(R.drawable.ic_contribute),
-                colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primary),
-                contentPadding = PaddingValues(
-                    start = 20.dp,
-                    top = 12.dp,
-                    bottom = 12.dp,
-                    end = 12.dp,
-                ),
-                onClick = {
-                    val currentLocale = configuration.locales[0].language
-
-                    openInBrowser(
-                        context,
-                        if (currentLocale === "ru") {
-                            "https://buckwheat.app/ru/contribute"
-                        } else {
-                            "https://buckwheat.app/contribute"
-                        },
-                    )
-                },
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            DescriptionButton(
-                title = { Text(stringResource(R.string.report_bug)) },
-                icon = painterResource(R.drawable.ic_bug_report),
-                colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primary),
-                contentPadding = PaddingValues(
-                    start = 20.dp,
-                    top = 12.dp,
-                    bottom = 12.dp,
-                    end = 12.dp,
-                ),
-                onClick = {
-                    appViewModel.openSheet(PathState(BUG_REPORTER_SHEET))
-                },
-            )
         }
     }
 }

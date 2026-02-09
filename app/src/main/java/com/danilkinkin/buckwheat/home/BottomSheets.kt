@@ -107,10 +107,6 @@ fun BottomSheets(
         name = SETTINGS_SHEET,
     ) { state ->
         Settings(
-            onTriedWidget = {
-                coroutineScope.launch { state.callback(emptyMap()) }
-            }
-            ,
             onOpenTest = {
                 coroutineScope.launch {
                     state.hide()
@@ -208,16 +204,6 @@ fun BottomSheets(
     }
 
     BottomSheetWrapper(
-        name = BUG_REPORTER_SHEET,
-    ) { state ->
-        BugReporter(
-            onClose = {
-                coroutineScope.launch { state.hide() }
-            },
-        )
-    }
-
-    BottomSheetWrapper(
         name = SETTINGS_CHANGE_THEME_SHEET,
     ) { state ->
         ThemeSwitcherDialog(
@@ -225,22 +211,6 @@ fun BottomSheets(
                 coroutineScope.launch { state.hide() }
             }
         )
-    }
-
-    BottomSheetWrapper(
-        name = SETTINGS_CHANGE_LOCALE_SHEET,
-    ) { state ->
-        LangSwitcherDialog(
-            onClose = {
-                coroutineScope.launch { state.hide() }
-            }
-        )
-    }
-
-    BottomSheetWrapper(
-        name = SETTINGS_TRY_WIDGET_SHEET,
-    ) { state ->
-        TryWidgetDialog()
     }
 
     BoxWithConstraints(Modifier.fillMaxSize()) {

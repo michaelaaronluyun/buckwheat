@@ -27,7 +27,7 @@ import com.danilkinkin.buckwheat.ui.BuckwheatTheme
 const val SETTINGS_SHEET = "settings"
 
 @Composable
-fun Settings(onTriedWidget: () -> Unit = {}, onOpenTest: () -> Unit = {}) {
+fun Settings(onOpenTest: () -> Unit = {}) {
     val localBottomSheetScrollState = LocalBottomSheetScrollState.current
 
     val navigationBarHeight = androidx.compose.ui.unit.max(
@@ -54,16 +54,9 @@ fun Settings(onTriedWidget: () -> Unit = {}, onOpenTest: () -> Unit = {}) {
                     .padding(bottom = navigationBarHeight)
             ) {
                 ThemeSwitcher()
-                LangSwitcher()
-                TryWidget(onTried = {
-                    onTriedWidget()
-                })
                 TextRow(
                     modifier = Modifier.clickable { onOpenTest() },
                     text = "Test",
-                )
-                TextRow(
-                    text = stringResource(R.string.version, BuildConfig.VERSION_NAME),
                 )
                 About(Modifier.padding(start = 16.dp, end = 16.dp))
             }
