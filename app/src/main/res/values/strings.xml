@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name" translatable="false">Buckwheat</string>
+  <string name="app_name" translatable="false">Budgeat</string>
   <string name="app_widget_extend_name" translatable="false">Buckwheat extend</string>
-  <string name="app_widget_minimal_name" translatable="false">Buckwheat minimal</string>
+  <string name="app_widget_minimal_name" translatable="false">Budgeat minimal</string>
   <string name="rest_budget_for_today" translatable="false">For today</string>
   <string name="new_daily_budget_short" translatable="false">New daily</string>
   <string name="new_daily_budget" translatable="false">New daily budget</string>
@@ -22,7 +22,7 @@
   <string name="wallet_title" translatable="false">Budget</string>
   <string name="wallet_edit_title" translatable="false">Setting up a budget</string>
   <string name="select_finish_date_title" translatable="false">Choose a finish date</string>
-  <plurals name="finish_date_label">
+  <plurals name="finish_date_label" translatable="false">
     <item quantity="one">To %1$s (%2$s day)</item>
     <item quantity="other">To %1$s (%2$s days)</item>
   </plurals>
@@ -59,7 +59,7 @@
   <string name="locale_system" translatable="false">Systemic</string>
   <string name="version" translatable="false">Version: %1$s</string>
   <string name="about" translatable="false">About app</string>
-  <string name="description" translatable="false">Buckwheat is an app that helps you spend money wisely. Writing down each spending sobers the mind and gives you an idea of how much and how you can spend.</string>
+  <string name="description" translatable="false">Budgeat is an app built on another app called Buckwheat (made by Danil Kinkin), that helps you spend money wisely. Writing down each spending sobers the mind and gives you an idea of how much and how you can spend. A new feature is made which gives you a list of food places you can eat around Taft based on your budget.</string>
   <string name="report_bug" translatable="false">Report a bug</string>
   <string name="contribute" translatable="false">Contribute</string>
   <string name="developer" translatable="false">Development &amp; design:</string>
