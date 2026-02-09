@@ -6,7 +6,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 import com.danilkinkin.buckwheat.util.combineColors
 
-val colorSeed = Color(0xFFCC4C08)
+val colorSeed = Color(0xFF388E3C)
 val colorGood = Color(0xFF40AC02)
 val colorNotGood = Color(0xFFFABC20)
 val colorBad = Color(0xFFC70909)

@@ -103,7 +103,7 @@ fun isNightMode(): Boolean = when (LocalContext.current.appTheme) {
 @Composable
 fun BuckwheatTheme(
     darkTheme: Boolean = isNightMode(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit,
 ) {
 
