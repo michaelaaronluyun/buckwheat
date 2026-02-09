@@ -95,9 +95,9 @@ class SpendsRepository @Inject constructor(
     }
 
     fun getCurrency() = context.budgetDataStore.data.map {
-        it[currencyStoreKey]?.let { value ->
-            ExtendCurrency.getInstance(value)
-        } ?: ExtendCurrency(value = null, type = ExtendCurrency.Type.NONE)
+        val value = it[currencyStoreKey].takeIf { !it.isNullOrEmpty() }
+        value?.let { ExtendCurrency.getInstance(it) }
+            ?: ExtendCurrency(value = "PHP", type = ExtendCurrency.Type.FROM_LIST)
     }
 
     fun getRestedBudgetDistributionMethod() = context.budgetDataStore.data.map { it ->

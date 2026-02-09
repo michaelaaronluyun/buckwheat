@@ -74,18 +74,6 @@ fun BottomSheets(
     }
 
     BottomSheetWrapper(
-        name = CURRENCY_EDITOR,
-    ) { state ->
-        CurrencyEditor(
-            onClose = {
-                coroutineScope.launch {
-                    state.hide()
-                }
-            }
-        )
-    }
-
-    BottomSheetWrapper(
         name = FINISH_DATE_SELECTOR_SHEET,
     ) { state ->
         FinishDateSelector(

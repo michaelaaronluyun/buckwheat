@@ -211,26 +211,6 @@ fun Wallet(
                         )
                     },
                 )
-                ButtonRow(
-                    icon = painterResource(R.drawable.ic_currency),
-                    text = stringResource(R.string.in_currency_label),
-                    onClick = {
-                        appViewModel.openSheet(PathState(CURRENCY_EDITOR))
-                    },
-                    endCaption = when (currency?.type) {
-                        ExtendCurrency.Type.FROM_LIST -> "${
-                            Currency.getInstance(
-                                currency!!.value
-                            ).displayName.titleCase()
-                        } (${
-                            Currency.getInstance(
-                                currency!!.value
-                            ).symbol
-                        })"
-                        ExtendCurrency.Type.CUSTOM -> currency!!.value!!
-                        else -> ""
-                    },
-                )
                 AnimatedVisibility(
                     visible = !isChange && !isEdit,
                     enter = fadeIn(
